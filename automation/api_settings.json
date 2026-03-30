@@ -1,0 +1,6 @@
+{
+  "api_key": "",
+  "base_url": "https://ai.dooo.ng/v1/chat/completions",
+  "model": "gpt-5.4",
+  "model_fast": "gpt-5.4"
+}

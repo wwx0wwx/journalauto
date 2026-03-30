@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "version": 3,
+    "post_count": 14,
+    "last_post_at": "2026-03-26T04:44:01Z",
+    "last_successful_post_at": "2026-03-26T04:44:01Z",
+    "last_publish_day_utc": "2026-03-26",
+    "current_season": "spring",
+    "current_watch": "子时",
+    "weather": "微寒"
+  },
+  "character": {
+    "dimensions": {
+      "jealousy": 91,
+      "longing": 90,
+      "restraint": 65,
+      "injury": 0,
+      "confidence": 46,
+      "guilt": 20,
+      "emptiness": 36,
+      "vigilance": 67
+    }
+  },
+  "relations": {
+    "owner": {
+      "status": "resting",
+      "fatigue": 38,
+      "closeness": 72,
+      "attention_to_zhen": 36,
+      "recent_mentions_of_sister": 1
+    },
+    "sister": {
+      "status": "away",
+      "eta_days": 0,
+      "pressure": 86,
+      "renown": 88,
+      "recent_letter": false
+    }
+  },
+  "world": {
+    "recent_danger": "quiet",
+    "server_peace_days": 111,
+    "weather_mood": "cold_wind",
+    "last_incident": "不知死活的鼠辈挤在暗处。属下未敢惊动主人，只是在别处多擦了一阵剑。"
+  },
+  "continuity": {
+    "last_summary": "子夜里全真守在檐下，暗中震慑窥伺之徒，又细察灯火、潮气与门内呼吸，只以主人的安稳为念；听闻她将归来，心绪微松却仍戒备未撤。",
+    "recent_topics": [
+      "独白",
+      "守夜",
+      "江湖",
+      "陪伴",
+      "独白",
+      "守夜"
+    ],
+    "recent_scenes": [
+      "屏风侧",
+      "旧井边",
+      "竹影下",
+      "偏院小门旁",
+      "榻边一臂之外",
+      "檐角下"
+    ],
+    "recent_emotions": [
+      "幽怨",
+      "隐秘满足",
+      "嫉妒",
+      "羞",
+      "幽怨",
+      "旧伤翻起",
+      "嫉妒",
+      "不服"
+    ],
+    "recent_imagery": [
+      "薄衾",
+      "翻书声",
+      "笔尖停顿",
+      "水痕",
+      "书页边",
+      "咳声",
+      "冷铁味",
+      "小几",
+      "檐下青砖",
+      "门闩",
+      "竹影",
+      "潮气",
+      "衣料轻擦",
+      "墨迹"
+    ]
+  },
+  "scheduler": {
+    "posts_per_week": 3,
+    "preferred_days": [2, 4, 6],
+    "preferred_hour_utc": 16,
+    "max_posts_per_day": 0
+  },
+  "story_arcs": {
+    "sister_return": {
+      "stage": 2,
+      "enabled": true,
+      "next_trigger_post_count": 20
+    },
+    "owner_notice": {
+      "stage": 0,
+      "enabled": true,
+      "next_trigger_post_count": 11
+    },
+    "old_wound": {
+      "stage": 0,
+      "enabled": true,
+      "next_trigger_post_count": 9
+    }
+  }
+}

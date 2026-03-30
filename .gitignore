@@ -1,0 +1,11 @@
+.env
+.hugo_build.lock
+public/
+resources/_gen/
+logs/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Runtime/generated state kept local unless explicitly exported
+automation/backups/

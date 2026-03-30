@@ -1,0 +1,10 @@
+[Unit]
+Description=Generate and publish Quan Zhen night journal post
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/blog-src
+ExecStart=/opt/blog-src/scripts/run_night_journal.sh
+User=root

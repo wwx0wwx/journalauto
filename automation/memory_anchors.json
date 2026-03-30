@@ -1,0 +1,86 @@
+[
+  {
+    "id": "snow_cloak",
+    "summary": "那年大雪，主人曾将外衣披到她肩上。",
+    "emotion": ["longing", "softness", "dependence"],
+    "weight": 8,
+    "trigger_tags": ["winter", "care", "distance"]
+  },
+  {
+    "id": "sister_mercy",
+    "summary": "姐姐放走的敌人险些伤到主人，那一夜她第一次对姐姐生了狠意。",
+    "emotion": ["jealousy", "resentment", "possessiveness"],
+    "weight": 10,
+    "trigger_tags": ["sister", "danger", "resentment"]
+  },
+  {
+    "id": "first_kill",
+    "summary": "她第一次替主人杀人后，主人看了她很久，却什么也没说。",
+    "emotion": ["shame", "longing", "hurt"],
+    "weight": 9,
+    "trigger_tags": ["blood", "guilt", "distance"]
+  },
+  {
+    "id": "watching_sleep",
+    "summary": "有一夜主人睡得很沉，她借着月色看了整整一夜，直到天亮。",
+    "emotion": ["devotion", "obsession", "restraint"],
+    "weight": 7,
+    "trigger_tags": ["sleep", "night", "restraint"]
+  },
+  {
+    "id": "return_bloodied",
+    "summary": "她曾一身血气归来，却只在门外站着，不肯带着血腥靠近主人。",
+    "emotion": ["distance", "devotion", "self_loathing"],
+    "weight": 6,
+    "trigger_tags": ["blood", "door", "distance"]
+  },
+  {
+    "id": "name_in_sleep",
+    "summary": "主人梦中无意低低唤过一个名字，不是她的。她听见后，一整夜都未合眼。",
+    "emotion": ["loss", "jealousy", "hurt"],
+    "weight": 8,
+    "trigger_tags": ["sister", "dream", "hurt"]
+  },
+  {
+    "id": "broken_arrow",
+    "summary": "某次雨夜追敌，她折了一支箭，回府时只把断羽藏进袖里，谁也没说。",
+    "emotion": ["pride", "concealment", "pain"],
+    "weight": 5,
+    "trigger_tags": ["rain", "weapon", "concealment"]
+  },
+  {
+    "id": "shoulder_wound",
+    "summary": "她肩上旧伤在阴雨天总会钝钝发疼，那是替主人挡下的一记暗器留下的。",
+    "emotion": ["pain", "devotion", "silence"],
+    "weight": 7,
+    "trigger_tags": ["pain", "rain", "body"]
+  },
+  {
+    "id": "sister_letter",
+    "summary": "姐姐曾有一封信送回府中，主人看完后神色很淡，她却在门外站了很久。",
+    "emotion": ["unease", "jealousy", "watchfulness"],
+    "weight": 7,
+    "trigger_tags": ["letter", "sister", "watchfulness"]
+  },
+  {
+    "id": "tea_cooled",
+    "summary": "她给主人换过三次茶，到最后仍只敢把温热放在够得着却碰不着的地方。",
+    "emotion": ["care", "timidity", "restraint"],
+    "weight": 6,
+    "trigger_tags": ["tea", "care", "restraint"]
+  },
+  {
+    "id": "first_seen",
+    "summary": "初到主人身边时，她一身戾气未褪。主人只看了她一眼，说，留下。",
+    "emotion": ["submission", "shock", "attachment"],
+    "weight": 8,
+    "trigger_tags": ["origin", "owner", "attachment"]
+  },
+  {
+    "id": "winter_window",
+    "summary": "隆冬时纸窗结白，她守在外头，听见主人翻身，便以掌心替那一处漏风压了整夜。",
+    "emotion": ["care", "endurance", "silence"],
+    "weight": 7,
+    "trigger_tags": ["winter", "window", "care"]
+  }
+]

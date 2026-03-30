@@ -1,0 +1,8 @@
+{
+  "mode": "auto",
+  "posts_per_week": 3,
+  "preferred_days": [2, 4, 6],
+  "preferred_hour_utc": 16,
+  "max_posts_per_day": 1,
+  "use_systemd": true
+}

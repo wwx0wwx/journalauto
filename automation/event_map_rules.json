@@ -1,0 +1,56 @@
+{
+  "signals": {
+    "ssh_intrusion": {
+      "source": "journalctl auth failures",
+      "mapping": [
+        "今夜风平浪静，连檐角落下的细声都听得清。",
+        "夜里有几只不知死活的飞蛾，在院外便被属下随手碾了。",
+        "今夜十数个瞎了眼的草莽试图惊扰主人的清梦。",
+        "不知死活的鼠辈挤在暗处。属下未敢惊动主人，只是在别处多擦了一阵剑。"
+      ]
+    },
+    "server_load": {
+      "source": "loadavg/memory",
+      "mapping": [
+        "府内安稳，主人的呼吸声很沉。",
+        "主人今日案牍劳形，眉头在睡梦中仍微微蹙着。",
+        "堂上风雨压身，主人今夜连歇息都带着几分紧绷。"
+      ]
+    },
+    "uptime": {
+      "source": "/proc/uptime",
+      "mapping": [
+        "这些日子一寸寸过去，属下已在此地守了主人半月有余。",
+        "时日已久，连这屋里哪一处先返寒，属下都记得分明。",
+        "日子久到连檐下旧痕都熟了。属下守在这里，已像前生欠下的命。"
+      ]
+    },
+    "disk_usage": {
+      "source": "df",
+      "mapping": [
+        "旧物越积越满，连空处都显得窄了。",
+        "库中堆压太久，有些东西该收拾了。"
+      ]
+    },
+    "site_traffic": {
+      "source": "nginx access",
+      "mapping": [
+        "院外今夜脚步杂了些，像有人远远停过。",
+        "门前来去的人多，灯却还是这一盏。"
+      ]
+    },
+    "service_restart": {
+      "source": "systemd journal",
+      "mapping": [
+        "夜里有一盏灯曾暗下去，好在又重新亮了。",
+        "局面一度乱过，终究还是稳住。"
+      ]
+    },
+    "certificate_renewal": {
+      "source": "letsencrypt logs",
+      "mapping": [
+        "门上旧符新换，夜里像又添了一道护印。"
+      ]
+    }
+  }
+}

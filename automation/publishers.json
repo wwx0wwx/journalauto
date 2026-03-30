@@ -1,0 +1,34 @@
+[
+  {
+    "id": "hugo",
+    "type": "hugo",
+    "name": "Hugo 本地博客",
+    "enabled": true,
+    "active": true,
+    "config": {}
+  },
+  {
+    "id": "wordpress",
+    "type": "wordpress",
+    "name": "WordPress",
+    "enabled": false,
+    "active": false,
+    "config": {
+      "xmlrpc_url": "",
+      "username": "",
+      "password": ""
+    }
+  },
+  {
+    "id": "zhiliu",
+    "type": "zhiliu",
+    "name": "直流博客",
+    "enabled": false,
+    "active": false,
+    "config": {
+      "endpoint": "",
+      "token": "",
+      "category_id": ""
+    }
+  }
+]

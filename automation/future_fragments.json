@@ -1,0 +1,37 @@
+[
+  {
+    "id": "sister_return_gate",
+    "summary": "姐姐回府那夜，主人亲自去迎。她站在廊下，看着那一幕，袖中指节发白。",
+    "arc": "sister_return",
+    "stage": 2,
+    "weight": 10
+  },
+  {
+    "id": "owner_near_call",
+    "summary": "有一夜主人忽然叫她近前，她明明只差半步，却像被什么钉在原处。",
+    "arc": "owner_notice",
+    "stage": 1,
+    "weight": 8
+  },
+  {
+    "id": "old_wound_exposed",
+    "summary": "旧伤在雨夜忽然裂开，血透过白衣，主人终于看见她一直藏着的那处痛。",
+    "arc": "old_wound",
+    "stage": 1,
+    "weight": 9
+  },
+  {
+    "id": "sister_object_seen",
+    "summary": "她在案上看见姐姐留下的一枚旧物，主人没有收起，她却连碰都不敢碰。",
+    "arc": "sister_return",
+    "stage": 1,
+    "weight": 7
+  },
+  {
+    "id": "owner_brushes_sleeve",
+    "summary": "主人伸手时，指背擦过她的袖口，短得像错觉，却让她整夜都静不下来。",
+    "arc": "owner_notice",
+    "stage": 2,
+    "weight": 7
+  }
+]

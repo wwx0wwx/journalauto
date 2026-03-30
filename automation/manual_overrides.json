@@ -1,0 +1,13 @@
+{
+  "mode": "auto",
+  "force_topic": "",
+  "force_primary_emotion": "",
+  "force_secondary_emotion": "",
+  "force_scene": "",
+  "force_memory_id": "",
+  "force_future_id": "",
+  "forbid_terms": [],
+  "forbid_topics": [],
+  "pause_publishing": false,
+  "notes_for_tonight": ""
+}

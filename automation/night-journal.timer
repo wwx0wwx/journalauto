@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Quan Zhen night journal three times a week
+
+[Timer]
+OnCalendar=Tue,Thu,Sat *-*-* 16:00:00 UTC
+Persistent=true
+Unit=night-journal.service
+
+[Install]
+WantedBy=timers.target

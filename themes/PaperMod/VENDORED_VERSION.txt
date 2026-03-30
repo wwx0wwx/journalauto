@@ -1,0 +1,6 @@
+# Vendored Version Record
+
+- Initial Vendor: March 2026
+- Repository: https://github.com/adityatelange/hugo-PaperMod
+- Branch: master/main (latest at the time of v1.0.0 release)
+- Reason: Avoid submodule initialization complexity during one-click deployment.

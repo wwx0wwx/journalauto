@@ -244,6 +244,34 @@ curl -I https://<domain>
 
 ---
 
-## 15. 一句话执行顺序
+## 15. 启动 Web 管理面板
 
-> 拉代码 → 写 `.env` → 修 `baseURL` → 确认 Hugo 版本 → 跑 `bootstrap_server.sh` → dry-run → 正式发首篇 → certbot → 验收。
+```bash
+# 安装 Python 虚拟环境依赖
+python3 -m venv /opt/blog-src/venv
+/opt/blog-src/venv/bin/pip install flask pillow python-dateutil pyyaml requests beautifulsoup4 lxml
+
+# 启动管理面板
+cd /opt/blog-src
+nohup /opt/blog-src/venv/bin/python scripts/admin.py --port 8765 > /var/log/journaladmin.log 2>&1 &
+```
+
+访问 `http://<server-ip>:8765` 使用管理面板：
+- 配置 AI API
+- 管理人物 Prompt
+- 配置发布平台（支持 Hugo/WordPress/直流博客）
+- 手动触发生成
+
+### 配置 Nginx 反向代理（可选）
+
+```nginx
+location /admin {
+    proxy_pass http://127.0.0.1:8765;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
+
+## 16. 一句话执行顺序
+
+> 拉代码 → 写 `.env` → 修 `baseURL` → 确认 Hugo 版本 → 跑 `bootstrap_server.sh` → dry-run → 正式发首篇 → certbot → 验收 → 启动管理面板。

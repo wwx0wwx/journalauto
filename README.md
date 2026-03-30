@@ -115,6 +115,39 @@ test -f /var/www/<domain>/index.html && echo OK
 - `auto`：自动生成并发布到 `content/posts`
 - `review`：生成后存入 `draft_review` 待审
 - `manual-only`：禁止自动发布
+- `debug`：调试模式，不写文件
+
+## Web 管理面板
+
+提供现代化的 Web 管理界面，基于 Vue 3 + Picnic CSS：
+
+```bash
+# 启动管理面板
+python scripts/admin.py
+
+# 指定端口
+python scripts/admin.py --port 8765
+```
+
+访问 `http://<server-ip>:8765` 打开管理面板，功能包括：
+
+| 功能 | 说明 |
+|------|------|
+| **立即生成** | 选择模式 (auto/review/manual-only/debug) 手动触发生成 |
+| **角色管理** | 创建、编辑、删除、切换人物 Prompt 配置 |
+| **AI 接口** | 配置 API Key、Base URL、Model、Model Fast |
+| **发布平台** | 配置 Hugo/WordPress/直流博客三种发布渠道 |
+| **定时发送** | 设置运行模式、发文日、UTC 发布时间 |
+
+## 多平台发布
+
+支持三种发布平台，可在管理面板中配置：
+
+| 平台 | 说明 |
+|------|------|
+| **Hugo** | 本地静态博客，自动构建并推送 Git |
+| **WordPress** | XML-RPC 发布到 WordPress |
+| **直流博客** | REST API 发布到直流博客等平台 |
 
 ## 手动运行
 
@@ -142,18 +175,29 @@ python scripts/run.py --dry-run
 ```text
 /opt/blog-src/
 ├── scripts/
-│   ├── run.py
+│   ├── admin.py              # Web 管理面板 (Vue 3)
+│   ├── run.py                 # 命令行入口
 │   ├── generate_night_journal.py
-│   └── health_check.py
+│   ├── health_check.py
+│   └── analyze_journal.py     # 统计分析
 ├── automation/
-│   ├── world_state.json
-│   ├── manual_overrides.json
-│   ├── *.json
+│   ├── api_settings.json      # AI API 配置
+│   ├── publishers.json        # 发布平台配置
+│   ├── schedule.json          # 定时配置
+│   ├── persona.json / persona.md  # 人物 Prompt
+│   ├── world_state.json       # 世界状态
+│   ├── manual_overrides.json  # 手动覆盖
 │   └── night-journal.timer / night-journal.service
-├── content/posts/
-├── draft_review/
-├── logs/
-├── themes/PaperMod/
+├── night_journal/             # Python 引擎
+│   ├── inputs/               # 输入层
+│   ├── narrative/            # 叙事层
+│   ├── generation/           # 生成层
+│   ├── quality/              # 质检层
+│   ├── publishing/           # 发布层 (hugo/wordpress/zhiliu)
+│   └── analysis/             # 分析层
+├── content/posts/             # 博客文章
+├── draft_review/             # 草稿箱
+├── themes/PaperMod/          # Hugo 主题
 ├── hugo.toml
 └── .env
 ```

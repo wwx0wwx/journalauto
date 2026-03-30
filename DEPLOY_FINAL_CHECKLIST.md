@@ -170,7 +170,28 @@ certbot --nginx -d <domain> -d www.<domain> --non-interactive --agree-tos -m adm
 
 ---
 
-## 八、最终验收
+## 八、Web 管理面板验收
+
+### 1. 启动管理面板
+```bash
+cd /opt/blog-src
+nohup /opt/blog-src/venv/bin/python scripts/admin.py --port 8765 > /var/log/journaladmin.log 2>&1 &
+curl -s http://127.0.0.1:8765/ | head -5
+```
+
+预期：
+- [ ] 返回 HTML 页面
+- [ ] 管理面板可访问
+
+### 2. 管理面板功能检查
+- [ ] API 设置 - 保存并测试连接
+- [ ] 人物管理 - 列出、新建、编辑角色
+- [ ] 发布平台 - 配置直流博客/WordPress
+- [ ] 定时发送 - 保存配置
+
+---
+
+## 九、最终验收
 
 ### 必须全部满足
 - [ ] 仓库为最新稳定版
@@ -182,10 +203,11 @@ certbot --nginx -d <domain> -d www.<domain> --non-interactive --agree-tos -m adm
 - [ ] 日志目录正常写入
 - [ ] 不再依赖 submodule
 - [ ] 远端不残留旧域名配置
+- [ ] Web 管理面板可访问
 
 ---
 
-## 九、部署后建议
+## 十、部署后建议
 
 - [ ] 备份 `/opt/blog-src/.env`
 - [ ] 备份 `/opt/blog-src/automation/*.json`
@@ -195,7 +217,7 @@ certbot --nginx -d <domain> -d www.<domain> --non-interactive --agree-tos -m adm
 
 ---
 
-## 十、一句话版
+## 十一、一句话版
 
 迁移时最容易出问题的，不是 Python，而是这四处：
 

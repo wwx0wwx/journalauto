@@ -324,20 +324,38 @@ class AdminAPIHandler(BaseHTTPRequestHandler):
                 _save_api_settings(settings, data)
                 body, ctype = _json_response({'success': True})
             elif path == '/api/api-settings/test':
-                # Test API connection
+                # Test API connection with chat completions
                 api_data = _load_api_settings(settings)
                 try:
                     import urllib.request
+                    base_url = api_data.get('base_url', '').rstrip('/')
+                    test_payload = json.dumps({
+                        'model': api_data.get('model', 'gpt-4'),
+                        'messages': [{'role': 'user', 'content': 'Hi'}],
+                        'max_tokens': 5
+                    }).encode('utf-8')
                     req = urllib.request.Request(
-                        api_data.get('base_url', '') + '/models',
-                        headers={'Authorization': f"Bearer {api_data.get('api_key', '')}"}
+                        base_url + '/chat/completions',
+                        data=test_payload,
+                        headers={
+                            'Content-Type': 'application/json',
+                            'Authorization': f"Bearer {api_data.get('api_key', '')}"
+                        },
+                        method='POST'
                     )
-                    with urllib.request.urlopen(req, timeout=10) as resp:
-                        body, ctype = _json_response({'success': True, 'message': 'Connection OK'})
+                    with urllib.request.urlopen(req, timeout=15) as resp:
+                        result = json.loads(resp.read().decode('utf-8'))
+                        if 'choices' in result:
+                            body, ctype = _json_response({'success': True, 'message': 'API connection successful!'})
+                        else:
+                            body, ctype = _json_response({'success': False, 'error': 'Unexpected response format'})
+                except urllib.error.HTTPError as e:
+                    error_body = e.read().decode('utf-8', errors='replace')[:200]
+                    body, ctype = _json_response({'success': False, 'error': f'HTTP {e.code}: {error_body}'})
                 except Exception as e:
                     body, ctype = _json_response({'success': False, 'error': str(e)})
             elif path == '/api/generate':
-                # Trigger generation (async, return immediately)
+                # Trigger generation in background thread
                 mode = data.get('mode', 'auto')
                 topic = data.get('topic', '')
                 overrides = _load_overrides(settings)
@@ -346,7 +364,23 @@ class AdminAPIHandler(BaseHTTPRequestHandler):
                 if topic:
                     overrides['force_topic'] = topic
                 _save_overrides(settings, overrides)
-                body, ctype = _json_response({'success': True, 'message': f'Generation started in {mode} mode'})
+
+                # Start generation in background thread
+                import threading
+                def run_generation():
+                    try:
+                        from night_journal.application import run
+                        result = run(str(settings.automation_dir), mode_override=mode, force_topic=topic if topic else None)
+                        # Log result
+                        log_file = settings.automation_dir / 'generation_log.json'
+                        log_file.write_text(json.dumps({'status': 'completed', 'result': str(result)}, ensure_ascii=False), encoding='utf-8')
+                    except Exception as e:
+                        log_file = settings.automation_dir / 'generation_error.json'
+                        log_file.write_text(json.dumps({'status': 'error', 'error': str(e)}, ensure_ascii=False), encoding='utf-8')
+
+                thread = threading.Thread(target=run_generation, daemon=True)
+                thread.start()
+                body, ctype = _json_response({'success': True, 'message': f'Generation started in {mode} mode (running in background)'})
             elif path.startswith('/api/drafts/'):
                 # Get draft content
                 filename = path.split('/')[-1]
